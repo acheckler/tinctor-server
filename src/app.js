@@ -22,6 +22,8 @@ app.get('/', (req, res) => {
     res.send('Hello, world!')
 })
 
+
+
 app.use(function errorHandler(error, req, res, next) {
     let response
     if (NODE_ENV === 'production') {
@@ -34,3 +36,7 @@ app.use(function errorHandler(error, req, res, next) {
 })
 
 module.exports = app
+
+/// get all GET endpoints working on postman, then connect to front end (locally), commit, get POST working locally, connect to front end (locally)
+// endpoint testing before deploy
+
