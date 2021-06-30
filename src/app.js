@@ -27,8 +27,7 @@ app.use('/ingredients', ingredientsRouter)
 app.use('/packaging', packagingRouter)
 
 app.get('/', (req, res, next) => {
-    res.send('Hello, world!')
-    .catch(next);
+    res.send('connected')
 })
 
 
@@ -46,6 +45,5 @@ app.use(function errorHandler(error, req, res, next) {
 
 module.exports = app
 
-/// get all GET endpoints working on postman, then connect to front end (locally), commit, get POST working locally, connect to front end (locally)
-// endpoint testing before deploy
+
 
