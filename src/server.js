@@ -2,11 +2,11 @@ const app = require('./app')
 const knex = require('knex')
 
 
-const { PORT, REACT_APP_DATABASE_URL } = require('./config')
+const { PORT, DATABASE_URL } = require('./config')
 
 const db = knex({
       client: 'pg',
-      connection: REACT_APP_DATABASE_URL,
+      connection: DATABASE_URL,
     })
 
 app.set('db', db)
