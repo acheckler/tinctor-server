@@ -5,6 +5,9 @@ const cors = require('cors')
 const helmet = require('helmet')
 const {CLIENT_ORIGIN} = require('./config');
 const { NODE_ENV } = require('./config')
+const projectsRouter = require('./projects/projects-router')
+const ingredientsRouter = require('./ingredients/ingredients-router')
+const packagingRouter = require('./packaging/packaging-router')
 
 const app = express()
 
@@ -14,12 +17,17 @@ const morganOption = (NODE_ENV === 'production')
 
 app.use(morgan(morganOption))
 app.use(helmet())
-app.use(cors({
-    origin: CLIENT_ORIGIN
-}))
+app.use(cors())
+// app.use(cors({
+//     origin: CLIENT_ORIGIN
+// }))
 
-app.get('/', (req, res) => {
-    res.send('Hello, world!')
+app.use('/projects', projectsRouter)
+app.use('/ingredients', ingredientsRouter)
+app.use('/packaging', packagingRouter)
+
+app.get('/', (req, res, next) => {
+    res.send('connected')
 })
 
 
@@ -37,6 +45,5 @@ app.use(function errorHandler(error, req, res, next) {
 
 module.exports = app
 
-/// get all GET endpoints working on postman, then connect to front end (locally), commit, get POST working locally, connect to front end (locally)
-// endpoint testing before deploy
+
 
