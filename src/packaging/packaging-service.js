@@ -9,10 +9,10 @@ const PackagingService = {
             .where('id', id)
     },
     getBottles(knex) {
-        return knex('packaging').where('category', 'bottle')
+        return knex('packaging').where('category', 'bottles')
     },
     getDroppers(knex) {
-        return knex('packaging').where('category', 'dropper')
+        return knex('packaging').where('category', 'droppers')
     }
 }
 
