@@ -23,8 +23,11 @@ const ProjectsService = {
                 'i2.ppg as carrier_ppg',
                 'projects.carrier_percentage',
                 'i3.name as flavor_name',
+                'i3.ppg as flavor_ppg',
                 'pa1.name as bottle_name',
+                'pa1.cpu as bottle_cpu',
                 'pa2.name as dropper_name',
+                'pa2.cpu as dropper_cpu',
                 'projects.total_cpu')
             .innerJoin('ingredients as i1', 'projects.canna_id', 'i1.id')
             .innerJoin('ingredients as i2', 'projects.carrier_id', 'i2.id')
